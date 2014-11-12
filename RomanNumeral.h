@@ -17,8 +17,9 @@ class RomanNumeral {
 private:
 	char roman[7];
 	int arabic[7];
-	const int null = -1;
 public:
+	RomanNumeral();
+	~RomanNumeral();
 	int romanToArabic(string input);
 	string arabicToRoman(int input);
 	int getSingleArabic(char input);
@@ -48,17 +49,17 @@ RomanNumeral::RomanNumeral() {
 
 RomanNumeral::~RomanNumeral() {
 }
-
+/*
 int RomanNumeral::romanToArabic(string input) {
 	int output;
 	if (isRoman(input) == true) {
 
 	} else {
-		output = null;
+		output = -1;
 	}
 	return output;
 }
-
+*/
 string RomanNumeral::arabicToRoman(int input) {
 	string output;
 	int tmp = 0;
@@ -108,8 +109,10 @@ string RomanNumeral::arabicToRoman(int input) {
 		}
 	}
 
-}
+	return output;
 
+}
+/*
 bool RomanNumeral::isRoman(string input) {
 	int length = input.size();
 	bool validity = true;
@@ -143,9 +146,9 @@ bool RomanNumeral::isRoman(string input) {
 	}
 	return validity;
 }
-
+*/
 char RomanNumeral::getSingleRoman(int input) {
-	char val = null;
+	char val;
 
 	if (input == arabic[0])
 		val = roman[0];
@@ -162,14 +165,14 @@ char RomanNumeral::getSingleRoman(int input) {
 	else if (input == arabic[6])
 		val = roman[6];
 	else
-		val = null;
+		val = '0';
 
 	return val;
 
 }
 
 int RomanNumeral::getSingleArabic(char input) {
-	int val = null;
+	int val;
 
 	if (input == roman[0])
 		val = arabic[0];
@@ -186,7 +189,7 @@ int RomanNumeral::getSingleArabic(char input) {
 	else if (input == roman[6])
 		val = arabic[6];
 	else
-		val = null;
+		val = -1;
 
 	return val;
 }
