@@ -19,8 +19,8 @@ private:
 	int arabic[7];
 	const int null = -1;
 public:
-	int RomanToArabic(string input);
-	string ArabicToRoman(int input);
+	int romanToArabic(string input);
+	string arabicToRoman(int input);
 	int getSingleArabic(char input);
 	char getSingleRoman(int input);
 
@@ -48,10 +48,10 @@ RomanNumeral::RomanNumeral() {
 RomanNumeral::~RomanNumeral() {
 }
 
-int RomanNumeral::RomanToArabic(string input) {
+int RomanNumeral::romanToArabic(string input) {
 }
 
-string RomanNumeral::ArabicToRoman(int input){
+string RomanNumeral::arabicToRoman(int input){
 
 }
 
