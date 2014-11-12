@@ -23,6 +23,7 @@ public:
 	string arabicToRoman(int input);
 	int getSingleArabic(char input);
 	char getSingleRoman(int input);
+	bool isRoman(string input);
 
 };
 
@@ -53,6 +54,37 @@ int RomanNumeral::romanToArabic(string input) {
 
 string RomanNumeral::arabicToRoman(int input){
 
+}
+
+bool RomanNumeral::isRoman(string input){
+	int length = input.size();
+	bool validity = true;
+
+	for(int z = 0; z < length; z++){
+		if(z == length - 1){
+			if(input.substr(z) == roman[0] || input.substr(z) == roman[1] ||
+				input.substr(z) == roman[2] || input.substr(z) == roman[3] ||
+				input.substr(z) == roman[4] || input.substr(z) == roman[5] ||
+				input.substr(z) == roman[6]){
+				//Checks validity
+			}
+			else{
+				validity = false;
+				return validity;
+			}
+		}
+		if(input.substr(z, z+1) == roman[0] || input.substr(z, z+1) == roman[1] ||
+				input.substr(z, z+1) == roman[2] || input.substr(z, z+1) == roman[3] ||
+				input.substr(z, z+1) == roman[4] || input.substr(z, z+1) == roman[5] ||
+				input.substr(z, z+1) == roman[6]){
+			//Checks validity
+		}
+		else{
+			validity = false;
+			return validity;
+		}
+	}
+	return validity;
 }
 
 char RomanNumeral::getSingleRoman(int input) {
