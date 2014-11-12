@@ -6,6 +6,7 @@
  */
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -18,8 +19,10 @@ private:
 	int arabic[7];
 	const int null = -1;
 public:
-	void RomanToArabic(string input);
-	int getArabic(char input);
+	int RomanToArabic(string input);
+	string ArabicToRoman(int input);
+	int getSingleArabic(char input);
+	char getSingleRoman(int input);
 
 };
 
@@ -42,29 +45,57 @@ RomanNumeral::RomanNumeral() {
 
 }
 
-RomanNumeral::~RomanNumeral(){}
+RomanNumeral::~RomanNumeral() {
+}
 
-void RomanNumeral::RomanToArabic(string input) {
+int RomanNumeral::RomanToArabic(string input) {
+}
+
+string RomanNumeral::ArabicToRoman(int input){
 
 }
 
-int RomanNumeral::getArabic(char input){
+char RomanNumeral::getSingleRoman(int input) {
+	char val = null;
+
+		if (input == arabic[0])
+			val = roman[0];
+		else if (input == arabic[1])
+			val = roman[1];
+		else if (input == arabic[2])
+			val = roman[2];
+		else if (input == arabic[3])
+			val = roman[3];
+		else if (input == arabic[4])
+			val = roman[4];
+		else if (input == arabic[5])
+			val = roman[5];
+		else if (input == arabic[6])
+			val = roman[6];
+		else
+			val = null;
+
+		return val;
+
+}
+
+int RomanNumeral::getSingleArabic(char input) {
 	int val = null;
 
-	if(input == roman[0])
-		val = roman[0];
-	else if(input == roman[1])
+	if (input == roman[0])
+		val = arabic[0];
+	else if (input == roman[1])
 		val = arabic[1];
-	else if(input == roman[2])
-			val = arabic[2];
-	else if(input == roman[3])
-			val = arabic[3];
-	else if(input == roman[4])
-			val = arabic[4];
-	else if(input == roman[5])
-			val = arabic[5];
-	else if(input == roman[6])
-			val = arabic[6];
+	else if (input == roman[2])
+		val = arabic[2];
+	else if (input == roman[3])
+		val = arabic[3];
+	else if (input == roman[4])
+		val = arabic[4];
+	else if (input == roman[5])
+		val = arabic[5];
+	else if (input == roman[6])
+		val = arabic[6];
 	else
 		val = null;
 
