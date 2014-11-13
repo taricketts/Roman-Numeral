@@ -22,6 +22,7 @@ public:
 	~RomanNumeral();
 	int romanToArabic(string input);
 	string messyArabicToRoman(int input);
+	string subtractiveRoman(string input);
 	int getSingleArabic(string input);
 	string getSingleRoman(int input);
 	bool isRoman(string input);
@@ -53,7 +54,7 @@ RomanNumeral::~RomanNumeral() {
 int RomanNumeral::romanToArabic(string input) {
 	int output = 0;
 	int length = input.length();
-	if (isRoman(input) == true) { // used to be test case. isRoman() function not working correctly.
+	if (isRoman(input) == true) {
 		for (int i = 0; i < length; i++) {
 			if (i == length - 1) {
 				output += getSingleArabic(input.substr(i));
@@ -126,7 +127,10 @@ string RomanNumeral::messyArabicToRoman(int input) {
 
 }
 
-//isRoman errors when string length > 2. Haven't found out why.
+string RomanNumeral::subtractiveRoman(string input){
+	return input; // work in progress
+}
+
 bool RomanNumeral::isRoman(string input) {
 	int length = input.size();
 	bool validity = true;
