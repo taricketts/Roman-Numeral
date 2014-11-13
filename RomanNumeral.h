@@ -21,7 +21,7 @@ public:
 	RomanNumeral();
 	~RomanNumeral();
 	int romanToArabic(string input);
-	string arabicToRoman(int input);
+	string messyArabicToRoman(int input);
 	int getSingleArabic(string input);
 	string getSingleRoman(int input);
 	bool isRoman(string input);
@@ -49,18 +49,31 @@ RomanNumeral::RomanNumeral() {
 
 RomanNumeral::~RomanNumeral() {
 }
-/*
+
 int RomanNumeral::romanToArabic(string input) {
-	int output;
+	int output = 0;
+	int length = input.length();
 	if (isRoman(input) == true) {
+		for (int i = 0; i < length; i++) {
+			if (i == length - 1) {
+				output += getSingleArabic(input.substr(i));
+			} else if (getSingleArabic(input.substr(i, i + 1))
+					< getSingleArabic(input.substr(i + 1, i + 2))) {
+				output += getSingleArabic(input.substr(i + 1, i + 2))
+						- getSingleArabic(input.substr(i, i + 1));
+				i++;
+			} else {
+				output += getSingleArabic(input.substr(i, i + 1));
+			}
+		}
 
 	} else {
 		output = -1;
 	}
 	return output;
 }
-*/
-string RomanNumeral::arabicToRoman(int input) {
+
+string RomanNumeral::messyArabicToRoman(int input) {
 	string output;
 	int tmp = 0;
 	if (input / 1000 >= 1) {
@@ -104,7 +117,7 @@ string RomanNumeral::arabicToRoman(int input) {
 		}
 	}
 	if (input != 0) {
-		for(int i = 0; i < input; i++){
+		for (int i = 0; i < input; i++) {
 			output += "I";
 		}
 	}
@@ -130,8 +143,7 @@ bool RomanNumeral::isRoman(string input) {
 				validity = false;
 				return validity;
 			}
-		}
-		if (input.substr(z, z + 1) == roman[0]
+		} else if (input.substr(z, z + 1) == roman[0]
 				|| input.substr(z, z + 1) == roman[1]
 				|| input.substr(z, z + 1) == roman[2]
 				|| input.substr(z, z + 1) == roman[3]
