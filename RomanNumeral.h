@@ -15,27 +15,27 @@ using namespace std;
 
 class RomanNumeral {
 private:
-	char roman[7];
+	string roman[7];
 	int arabic[7];
 public:
 	RomanNumeral();
 	~RomanNumeral();
 	int romanToArabic(string input);
 	string arabicToRoman(int input);
-	int getSingleArabic(char input);
-	char getSingleRoman(int input);
+	int getSingleArabic(string input);
+	string getSingleRoman(int input);
 	bool isRoman(string input);
 
 };
 
 RomanNumeral::RomanNumeral() {
-	roman[0] = 'I';
-	roman[1] = 'V';
-	roman[2] = 'X';
-	roman[3] = 'L';
-	roman[4] = 'C';
-	roman[5] = 'D';
-	roman[6] = 'M';
+	roman[0] = "I";
+	roman[1] = "V";
+	roman[2] = "X";
+	roman[3] = "L";
+	roman[4] = "C";
+	roman[5] = "D";
+	roman[6] = "M";
 
 	arabic[0] = 1;
 	arabic[1] = 5;
@@ -63,41 +63,41 @@ int RomanNumeral::romanToArabic(string input) {
 string RomanNumeral::arabicToRoman(int input) {
 	string output;
 	int tmp = 0;
-	if (input % 1000 >= 1) {
-		tmp = input % 1000;
+	if (input / 1000 >= 1) {
+		tmp = input / 1000;
 		input -= (tmp * 1000);
 		for (int i = 0; i < tmp; i++) {
 			output += "M";
 		}
 	}
-	if (input % 500 == 1) {
-		tmp = input % 500;
+	if (input / 500 == 1) {
+		tmp = input / 500;
 		input -= 500;
 		output += "D";
 	}
-	if (input % 100 >= 1) {
-		tmp = input % 100;
+	if (input / 100 >= 1) {
+		tmp = input / 100;
 		input -= (tmp * 100);
 		for (int i = 0; i < tmp; i++) {
 			output += "C";
 		}
 	}
-	if (input % 50 >= 1) {
-		tmp = input % 50;
+	if (input / 50 >= 1) {
+		tmp = input / 50;
 		input -= (tmp * 100);
 		for (int i = 0; i < tmp; i++) {
 			output += "L";
 		}
 	}
-	if (input % 10 >= 1) {
-		tmp = input % 10;
+	if (input / 10 >= 1) {
+		tmp = input / 10;
 		input -= (tmp * 10);
 		for (int i = 0; i < tmp; i++) {
 			output += "X";
 		}
 	}
-	if (input % 5 >= 1) {
-		tmp = input % 5;
+	if (input / 5 >= 1) {
+		tmp = input / 5;
 		input -= (tmp * 5);
 		for (int i = 0; i < tmp; i++) {
 			output += "V";
@@ -112,7 +112,7 @@ string RomanNumeral::arabicToRoman(int input) {
 	return output;
 
 }
-/*
+
 bool RomanNumeral::isRoman(string input) {
 	int length = input.size();
 	bool validity = true;
@@ -146,9 +146,9 @@ bool RomanNumeral::isRoman(string input) {
 	}
 	return validity;
 }
-*/
-char RomanNumeral::getSingleRoman(int input) {
-	char val;
+
+string RomanNumeral::getSingleRoman(int input) {
+	string val;
 
 	if (input == arabic[0])
 		val = roman[0];
@@ -171,7 +171,7 @@ char RomanNumeral::getSingleRoman(int input) {
 
 }
 
-int RomanNumeral::getSingleArabic(char input) {
+int RomanNumeral::getSingleArabic(string input) {
 	int val;
 
 	if (input == roman[0])
