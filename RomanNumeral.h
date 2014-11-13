@@ -53,18 +53,17 @@ RomanNumeral::~RomanNumeral() {
 int RomanNumeral::romanToArabic(string input) {
 	int output = 0;
 	int length = input.length();
-	if (true) { // used to be test case. isRoman() function not working correctly.
+	if (isRoman(input) == true) { // used to be test case. isRoman() function not working correctly.
 		for (int i = 0; i < length; i++) {
-			cout << i << ": " << input.substr(i, i+1) << endl;
 			if (i == length - 1) {
 				output += getSingleArabic(input.substr(i));
-			} else if (getSingleArabic(input.substr(i, i + 1))
-					< getSingleArabic(input.substr(i + 1, i + 2))) {
-				output += getSingleArabic(input.substr(i + 1, i + 2))
-						- getSingleArabic(input.substr(i, i + 1));
+			} else if (getSingleArabic(input.substr(i, 1))
+					< getSingleArabic(input.substr(i + 1, 1))) {
+				output += getSingleArabic(input.substr(i + 1, 1))
+						- getSingleArabic(input.substr(i, 1));
 				i++;
 			} else {
-				output += getSingleArabic(input.substr(i, i + 1));
+				output += getSingleArabic(input.substr(i, 1));
 			}
 		}
 
@@ -145,13 +144,13 @@ bool RomanNumeral::isRoman(string input) {
 				validity = false;
 				return validity;
 			}
-		} else if (input.substr(z, z + 1) == roman[0]
-				|| input.substr(z, z + 1) == roman[1]
-				|| input.substr(z, z + 1) == roman[2]
-				|| input.substr(z, z + 1) == roman[3]
-				|| input.substr(z, z + 1) == roman[4]
-				|| input.substr(z, z + 1) == roman[5]
-				|| input.substr(z, z + 1) == roman[6]) {
+		} else if (input.substr(z, 1) == roman[0]
+				|| input.substr(z, 1) == roman[1]
+				|| input.substr(z, 1) == roman[2]
+				|| input.substr(z, 1) == roman[3]
+				|| input.substr(z, 1) == roman[4]
+				|| input.substr(z, 1) == roman[5]
+				|| input.substr(z, 1) == roman[6]) {
 			//Checks validity
 		} else {
 			validity = false;

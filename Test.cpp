@@ -18,7 +18,7 @@ int main(){
 	cout << "Arabic number 2013 to Roman... " << conv.messyArabicToRoman(year) << endl;
 	cout << "Did the year variable change? " << year << endl;
 	cout << "Is XX roman? 0 = false, 1 = true: " << conv.isRoman("XX") << endl;
-	cout << "Is MMXIV roman? 0 = false, 1 = true: " << conv.isRoman("MMXIV") << endl;
+	cout << "Is MMXIVQ roman? 0 = false, 1 = true: " << conv.isRoman("MMXIVQ") << endl;
 	cout << "Roman number XI = " << conv.romanToArabic("XI") << endl;
 	cout << "Roman number MMXIV = " << conv.romanToArabic("MMXIV") << endl;
 }
