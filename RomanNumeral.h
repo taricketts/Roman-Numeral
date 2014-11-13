@@ -126,6 +126,7 @@ string RomanNumeral::messyArabicToRoman(int input) {
 
 }
 
+//isRoman errors when string length > 2. Haven't found out why.
 bool RomanNumeral::isRoman(string input) {
 	int length = input.size();
 	bool validity = true;
