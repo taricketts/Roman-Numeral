@@ -53,8 +53,9 @@ RomanNumeral::~RomanNumeral() {
 int RomanNumeral::romanToArabic(string input) {
 	int output = 0;
 	int length = input.length();
-	if (isRoman(input) == true) {
+	if (true) { // used to be test case. isRoman() function not working correctly.
 		for (int i = 0; i < length; i++) {
+			cout << i << ": " << input.substr(i, i+1) << endl;
 			if (i == length - 1) {
 				output += getSingleArabic(input.substr(i));
 			} else if (getSingleArabic(input.substr(i, i + 1))

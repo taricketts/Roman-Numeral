@@ -20,7 +20,7 @@ int main(){
 	cout << "Is XX roman? 0 = false, 1 = true: " << conv.isRoman("XX") << endl;
 	cout << "Is MMXIV roman? 0 = false, 1 = true: " << conv.isRoman("MMXIV") << endl;
 	cout << "Roman number XI = " << conv.romanToArabic("XI") << endl;
-	cout << "Roman number XM = " << conv.romanToArabic("XM") << endl;
+	cout << "Roman number MMXIV = " << conv.romanToArabic("MMXIV") << endl;
 }
 
 
