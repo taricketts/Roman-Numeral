@@ -21,6 +21,7 @@ int main(){
 	cout << "Is MMXIVQ roman? 0 = false, 1 = true: " << conv.isRoman("MMXIVQ") << endl;
 	cout << "Roman number XI = " << conv.romanToArabic("XI") << endl;
 	cout << "Roman number MMXIV = " << conv.romanToArabic("MMXIV") << endl;
+	cout << "Using the additive structure, 2014 = " << conv.messyArabicToRoman(2014) << endl;
 }
 
 

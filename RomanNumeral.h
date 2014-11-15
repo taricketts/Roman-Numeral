@@ -127,8 +127,41 @@ string RomanNumeral::messyArabicToRoman(int input) {
 
 }
 
-string RomanNumeral::subtractiveRoman(string input){
-	return input; // work in progress
+string RomanNumeral::subtractiveRoman(string input) {
+	int length = input.length();
+	// may not be needed: int count = 0;
+	string output = "";
+	string tmp = "";
+	string single = "";
+
+	for (int i = 0; i < length; i++) {
+		if (i == length - 1) {
+			output += input.substr(i, 1);
+			return output;
+		} else if (i == length - 2) {
+			output += input.substr(i, 1) + input.substr(i + 1, 1);
+			return output;
+		} else if (i == length - 3) {
+			output += input.substr(i, 1) + input.substr(i + 1, 1)
+					+ input.substr(i + 2, 1);
+			return output;
+		} else {
+			tmp = input.substr(i, 4);
+			single = tmp.substr(0, 1);
+		}
+		if (single == tmp.substr(0, 1) && single == tmp.substr(1, 1)
+				&& single == tmp.substr(2, 1) && single == tmp.substr(3)) {
+			/*
+			check single for value, make correct conversion, change
+			tmp, and add to output
+			*/
+		} else {
+			output += tmp;
+		}
+
+	}
+
+	return input;
 }
 
 bool RomanNumeral::isRoman(string input) {
